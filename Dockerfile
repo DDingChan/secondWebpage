@@ -5,8 +5,8 @@ WORKDIR /app
 COPY . .
 
 RUN chmod +x gradlew
-RUN ./gradlew build -x test
+RUN ./gradlew build -x test --no-daemon
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "build/libs/webTest-0.0.1-SNAPSHOT.jar"]
+CMD sh -c "java -jar $(ls build/libs/*.jar | grep -v plain | head -n 1)"

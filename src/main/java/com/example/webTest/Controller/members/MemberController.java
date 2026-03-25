@@ -35,7 +35,7 @@ public class MemberController {
         member.setDigitNum(memberForm.getDigitNum());
         member.setTelNum(memberForm.getTelNum());
         memberService.join(member);
-        return "redirect:/test";
+        return "redirect:/";
     }
 
     @GetMapping("/members")
